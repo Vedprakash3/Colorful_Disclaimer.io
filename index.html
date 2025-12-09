@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>Colorful Ticker</title>
+
+  <style>
+    .ticker {
+      width: 100%;
+      overflow: hidden;
+      background: #222;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll-left 12s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Colorful Disclaimer Demo</h2>
+
+<div class="ticker">
+  <div class="text">
+    <span style="color: #ff3b3b;">⚠ महत्वपूर्ण सूचना:</span>
+    <span style="color: #00eaff;"> यह टेक्स्ट नीले रंग में है,</span>
+    <span style="color: #32ff32;"> यह हरे रंग में है,</span>
+    <span style="color: #ffea00;"> और यह पीले रंग में स्क्रॉल हो रहा है!</span>
+  </div>
+</div>
+
+</body>
+</html>
