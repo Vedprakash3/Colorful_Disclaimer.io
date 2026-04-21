@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Centered Video Ticker</title>
+<title>News Style Video + Disclaimer</title>
 
 <style>
 body {
@@ -19,58 +19,67 @@ body {
   padding: 20px 10px;
 }
 
-/* YouTube style container */
+/* Video container */
 .video-container {
-  position: relative;
   width: 100%;
-  max-width: 800px; /* 🔥 YouTube जैसा size */
+  max-width: 800px;
 }
 
-/* 16:9 aspect ratio */
-.video-box {
-  position: relative;
+/* Video */
+video {
   width: 100%;
-  padding-top: 56.25%; /* 16:9 */
+  display: block;
 }
 
-.video-box video {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Disclaimer bar */
+.disclaimer-bar {
+  display: flex;
   width: 100%;
-  height: 100%;
+  background: #000;
 }
 
-/* Ticker */
-.ticker {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.7);
+/* Left label */
+.label {
+  background: red;
+  color: #fff;
+  padding: 10px 15px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Scrolling area */
+.scroll-box {
   overflow: hidden;
-  padding: 6px 0;
+  flex: 1;
+  background: #222;
+  display: flex;
+  align-items: center;
 }
 
 /* Text */
-.text {
+.scroll-text {
   display: inline-block;
   white-space: nowrap;
   animation: scroll-left 15s linear infinite;
   font-weight: bold;
+  padding-left: 100%;
+  color: #fff;
 }
 
 /* Animation */
 @keyframes scroll-left {
-  from { transform: translateX(100%); }
+  from { transform: translateX(0); }
   to { transform: translateX(-100%); }
 }
 
-/* Responsive text */
+/* Responsive */
 @media (max-width: 600px) {
-  .text { font-size: 14px; }
+  .label { font-size: 12px; padding: 8px; }
+  .scroll-text { font-size: 12px; }
 }
+
 @media (min-width: 601px) {
-  .text { font-size: 18px; }
+  .scroll-text { font-size: 16px; }
 }
 </style>
 </head>
@@ -78,27 +87,29 @@ body {
 <body>
 
 <div class="wrapper">
-
   <div class="video-container">
 
-    <div class="video-box">
-      <video controls autoplay muted loop playsinline>
-        <source src="your-video.mp4" type="video/mp4">
-      </video>
+    <!-- 🎬 Video -->
+    <video controls autoplay muted loop playsinline>
+      <source src="your-video.mp4" type="video/mp4">
+      आपका ब्राउज़र वीडियो सपोर्ट नहीं करता।
+    </video>
 
-      <div class="ticker">
-        <div class="text">
-          <span style="color:#ff3b3b;">⚠ महत्वपूर्ण सूचना!</span>&nbsp;&nbsp;
-          <span style="color:#00eaff;"> यह टेक्स्ट नीले रंग में है!</span>&nbsp;&nbsp;
-          <span style="color:#32ff32;"> यह हरे रंग में है!</span>&nbsp;&nbsp;
-          <span style="color:#ffea00;"> और यह पीले रंग में स्क्रॉल हो रहा है!</span>
+    <!-- 📰 Disclaimer Bar -->
+    <div class="disclaimer-bar">
+
+      <div class="label">⚠ DISCLAIMER</div>
+
+      <div class="scroll-box">
+        <div class="scroll-text">
+          यह समाचार केवल जानकारी के उद्देश्य से है | चैनल किसी भी प्रकार की जिम्मेदारी नहीं लेता |
+          सभी निर्णय अपनी जिम्मेदारी पर लें |
         </div>
       </div>
 
     </div>
 
   </div>
-
 </div>
 
 </body>
