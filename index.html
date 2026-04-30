@@ -3,54 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Colorful News Style Video + Disclaimer</title>
+<title>Full Screen Video + Fixed Disclaimer</title>
 
 <style>
 * {
   box-sizing: border-box;
 }
 
+/* Remove full page scrolling */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden;
+  height: 100%;
+  overflow: hidden;
   font-family: Arial, sans-serif;
-  background: transparent;
+  background: #000;
 }
 
-/* Fullscreen width */
+/* Main container fills screen */
 .wrapper {
   width: 100%;
-  margin: 0;
-  padding: 0;
+  height: 100vh;
 }
 
 /* Video container */
 .video-container {
   width: 100%;
-  max-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Video */
+/* Video fills available space */
 video {
   width: 100%;
-  height: auto;
-  display: block;
+  height: calc(100vh - 50px);
   object-fit: cover;
+  display: block;
 }
 
-/* Disclaimer bar */
+/* Disclaimer bar fixed at bottom */
 .disclaimer-bar {
-  display: flex;
   width: 100%;
-  min-height: 45px;
+  min-height: 50px;
+  display: flex;
   background: linear-gradient(90deg, #000428, #004e92);
   border-top: 2px solid yellow;
   border-bottom: 2px solid red;
+  flex-shrink: 0;
 }
 
-/* Warning label */
+/* Label */
 .label {
   background: linear-gradient(45deg, red, orange);
   color: white;
@@ -59,11 +63,11 @@ video {
   white-space: nowrap;
   display: flex;
   align-items: center;
-  flex-shrink: 0;
   font-size: 14px;
+  flex-shrink: 0;
 }
 
-/* Scroll area */
+/* Scroll box */
 .scroll-box {
   flex: 1;
   overflow: hidden;
@@ -92,8 +96,12 @@ video {
   }
 }
 
-/* Mobile optimization */
+/* Mobile */
 @media (max-width: 768px) {
+  video {
+    height: calc(100vh - 42px);
+  }
+
   .label {
     font-size: 11px;
     padding: 7px 10px;
@@ -105,16 +113,16 @@ video {
   }
 
   .disclaimer-bar {
-    min-height: 38px;
-  }
-
-  video {
-    max-height: 100vh;
+    min-height: 42px;
   }
 }
 
-/* Extra small devices */
+/* Extra small */
 @media (max-width: 480px) {
+  video {
+    height: calc(100vh - 38px);
+  }
+
   .label {
     font-size: 10px;
     padding: 6px 8px;
@@ -123,6 +131,10 @@ video {
   .scroll-text {
     font-size: 11px;
     animation-duration: 11s;
+  }
+
+  .disclaimer-bar {
+    min-height: 38px;
   }
 }
 </style>
@@ -139,9 +151,8 @@ video {
       आपका ब्राउज़र वीडियो सपोर्ट नहीं करता।
     </video>
 
-    <!-- Disclaimer -->
+    <!-- Fixed Disclaimer -->
     <div class="disclaimer-bar">
-
       <div class="label">⚠ DISCLAIMER</div>
 
       <div class="scroll-box">
@@ -150,7 +161,6 @@ video {
           सभी निर्णय अपनी जिम्मेदारी पर लें |
         </div>
       </div>
-
     </div>
 
   </div>
