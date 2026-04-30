@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>News Style Video + Disclaimer</title>
+<title>Colorful News Style Video + Disclaimer</title>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: transparent;
 }
 
+/* Full width layout */
 .wrapper {
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
+/* Video container */
 .video-container {
   width: 100%;
   max-width: 100%;
   overflow: hidden;
 }
 
+/* Video */
 video {
   width: 100%;
   height: auto;
@@ -31,48 +38,62 @@ video {
   object-fit: cover;
 }
 
-/* Disclaimer Bar */
+/* Disclaimer bar */
 .disclaimer-bar {
   display: flex;
   width: 100%;
-  background: #000;
-  min-height: 40px;
+  min-height: 45px;
+  background: linear-gradient(90deg, #1a1a1a, #333, #1a1a1a);
+  border-top: 2px solid yellow;
+  border-bottom: 2px solid red;
 }
 
+/* Warning label */
 .label {
-  background: red;
-  color: white;
-  padding: 8px 12px;
+  background: linear-gradient(45deg, red, orange);
+  color: #fff;
+  padding: 8px 16px;
   font-weight: bold;
   white-space: nowrap;
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  font-size: 14px;
+  text-shadow: 1px 1px 2px black;
 }
 
+/* Scroll area */
 .scroll-box {
   flex: 1;
   overflow: hidden;
-  background: #222;
   display: flex;
   align-items: center;
+  background: linear-gradient(90deg, #000428, #004e92);
 }
 
+/* Moving text */
 .scroll-text {
-  white-space: nowrap;
   display: inline-block;
+  white-space: nowrap;
   padding-left: 100%;
   animation: scroll-left 15s linear infinite;
-  color: white;
+  color: yellow;
   font-weight: bold;
+  font-size: 15px;
+  text-shadow: 1px 1px 2px black;
 }
 
+/* Animation */
 @keyframes scroll-left {
-  from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
-/* Mobile */
+/* Mobile responsive */
 @media (max-width: 768px) {
   .label {
     font-size: 11px;
@@ -81,6 +102,24 @@ video {
 
   .scroll-text {
     font-size: 12px;
+    animation-duration: 13s;
+  }
+
+  .disclaimer-bar {
+    min-height: 40px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .label {
+    font-size: 10px;
+    padding: 6px 8px;
+  }
+
+  .scroll-text {
+    font-size: 11px;
+    animation-duration: 11s;
   }
 }
 </style>
@@ -91,13 +130,13 @@ video {
 <div class="wrapper">
   <div class="video-container">
 
-    <!-- 🎬 Video -->
+    <!-- Video -->
     <video controls autoplay muted loop playsinline>
       <source src="your-video.mp4" type="video/mp4">
       आपका ब्राउज़र वीडियो सपोर्ट नहीं करता।
     </video>
 
-    <!-- 📰 Disclaimer Bar -->
+    <!-- Colorful Disclaimer -->
     <div class="disclaimer-bar">
 
       <div class="label">⚠ DISCLAIMER</div>
