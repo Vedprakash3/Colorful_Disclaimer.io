@@ -3,69 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mobile Fit Video + Disclaimer</title>
+<title>Colorful News Style Video + Disclaimer</title>
 
 <style>
 * {
   box-sizing: border-box;
 }
 
-html, body {
+body {
   margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
   font-family: Arial, sans-serif;
-  background: #000;
+  background: transparent;
 }
 
-/* Full mobile fit */
+/* Full width layout */
 .wrapper {
   width: 100%;
-  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
-/* Main container */
+/* Video container */
 .video-container {
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  max-width: 100%;
+  overflow: hidden;
 }
 
-/* Video auto adjusts */
+/* Video */
 video {
   width: 100%;
-  flex: 1;
-  object-fit: contain;
-  background: #000;
+  height: auto;
   display: block;
+  object-fit: cover;
 }
 
-/* Disclaimer always visible */
+/* Disclaimer bar */
 .disclaimer-bar {
-  width: 100%;
-  height: auto;
-  min-height: 42px;
   display: flex;
-  background: linear-gradient(90deg, #000428, #004e92);
+  width: 100%;
+  min-height: 45px;
+  background: linear-gradient(90deg, #1a1a1a, #333, #1a1a1a);
   border-top: 2px solid yellow;
   border-bottom: 2px solid red;
-  flex-shrink: 0;
 }
 
-/* Label */
+/* Warning label */
 .label {
   background: linear-gradient(45deg, red, orange);
-  color: white;
-  padding: 8px 12px;
+  color: #fff;
+  padding: 8px 16px;
   font-weight: bold;
   white-space: nowrap;
   display: flex;
   align-items: center;
-  font-size: 13px;
   flex-shrink: 0;
+  font-size: 14px;
+  text-shadow: 1px 1px 2px black;
 }
 
 /* Scroll area */
@@ -74,17 +68,19 @@ video {
   overflow: hidden;
   display: flex;
   align-items: center;
+  background: linear-gradient(90deg, #000428, #004e92);
 }
 
-/* Text */
+/* Moving text */
 .scroll-text {
   display: inline-block;
   white-space: nowrap;
   padding-left: 100%;
-  animation: scroll-left 14s linear infinite;
+  animation: scroll-left 15s linear infinite;
   color: yellow;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 15px;
+  text-shadow: 1px 1px 2px black;
 }
 
 /* Animation */
@@ -97,12 +93,25 @@ video {
   }
 }
 
-/* Mobile optimization */
+/* Mobile responsive */
 @media (max-width: 768px) {
-  .disclaimer-bar {
-    min-height: 38px;
+  .label {
+    font-size: 11px;
+    padding: 7px 10px;
   }
 
+  .scroll-text {
+    font-size: 12px;
+    animation-duration: 13s;
+  }
+
+  .disclaimer-bar {
+    min-height: 40px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
   .label {
     font-size: 10px;
     padding: 6px 8px;
@@ -110,24 +119,7 @@ video {
 
   .scroll-text {
     font-size: 11px;
-    animation-duration: 12s;
-  }
-}
-
-/* Small mobile */
-@media (max-width: 480px) {
-  .disclaimer-bar {
-    min-height: 34px;
-  }
-
-  .label {
-    font-size: 9px;
-    padding: 5px 7px;
-  }
-
-  .scroll-text {
-    font-size: 10px;
-    animation-duration: 10s;
+    animation-duration: 11s;
   }
 }
 </style>
@@ -144,7 +136,7 @@ video {
       आपका ब्राउज़र वीडियो सपोर्ट नहीं करता।
     </video>
 
-    <!-- Disclaimer -->
+    <!-- Colorful Disclaimer -->
     <div class="disclaimer-bar">
 
       <div class="label">⚠ DISCLAIMER</div>
