@@ -10,13 +10,16 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
   font-family: Arial, sans-serif;
   background: transparent;
 }
 
-/* Full width layout */
+/* Fullscreen width */
 .wrapper {
   width: 100%;
   margin: 0;
@@ -27,7 +30,6 @@ body {
 .video-container {
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
 }
 
 /* Video */
@@ -43,7 +45,7 @@ video {
   display: flex;
   width: 100%;
   min-height: 45px;
-  background: linear-gradient(90deg, #1a1a1a, #333, #1a1a1a);
+  background: linear-gradient(90deg, #000428, #004e92);
   border-top: 2px solid yellow;
   border-bottom: 2px solid red;
 }
@@ -51,15 +53,14 @@ video {
 /* Warning label */
 .label {
   background: linear-gradient(45deg, red, orange);
-  color: #fff;
-  padding: 8px 16px;
+  color: white;
+  padding: 8px 14px;
   font-weight: bold;
   white-space: nowrap;
   display: flex;
   align-items: center;
   flex-shrink: 0;
   font-size: 14px;
-  text-shadow: 1px 1px 2px black;
 }
 
 /* Scroll area */
@@ -68,10 +69,9 @@ video {
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: linear-gradient(90deg, #000428, #004e92);
 }
 
-/* Moving text */
+/* Scrolling text */
 .scroll-text {
   display: inline-block;
   white-space: nowrap;
@@ -79,8 +79,7 @@ video {
   animation: scroll-left 15s linear infinite;
   color: yellow;
   font-weight: bold;
-  font-size: 15px;
-  text-shadow: 1px 1px 2px black;
+  font-size: 14px;
 }
 
 /* Animation */
@@ -93,7 +92,7 @@ video {
   }
 }
 
-/* Mobile responsive */
+/* Mobile optimization */
 @media (max-width: 768px) {
   .label {
     font-size: 11px;
@@ -106,7 +105,11 @@ video {
   }
 
   .disclaimer-bar {
-    min-height: 40px;
+    min-height: 38px;
+  }
+
+  video {
+    max-height: 100vh;
   }
 }
 
@@ -136,7 +139,7 @@ video {
       आपका ब्राउज़र वीडियो सपोर्ट नहीं करता।
     </video>
 
-    <!-- Colorful Disclaimer -->
+    <!-- Disclaimer -->
     <div class="disclaimer-bar">
 
       <div class="label">⚠ DISCLAIMER</div>
