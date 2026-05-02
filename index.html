@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Colorful News Style Video + Disclaimer</title>
+<title>YouTube Style Smaller Video + Disclaimer</title>
 
 <style>
 * {
@@ -14,20 +14,24 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: transparent;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
-/* Full width layout */
+/* Center wrapper like YouTube player */
 .wrapper {
   width: 100%;
-  margin: 0;
-  padding: 0;
+  max-width: 800px; /* YouTube-like width */
 }
 
 /* Video container */
 .video-container {
   width: 100%;
-  max-width: 100%;
+  border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  background: #000;
 }
 
 /* Video */
@@ -35,6 +39,7 @@ video {
   width: 100%;
   height: auto;
   display: block;
+  max-height: 450px; /* Smaller fixed style */
   object-fit: cover;
 }
 
@@ -93,8 +98,16 @@ video {
   }
 }
 
-/* Mobile responsive */
+/* Tablet */
 @media (max-width: 768px) {
+  .wrapper {
+    max-width: 95%;
+  }
+
+  video {
+    max-height: 300px;
+  }
+
   .label {
     font-size: 11px;
     padding: 7px 10px;
@@ -110,8 +123,12 @@ video {
   }
 }
 
-/* Extra small devices */
+/* Mobile */
 @media (max-width: 480px) {
+  video {
+    max-height: 220px;
+  }
+
   .label {
     font-size: 10px;
     padding: 6px 8px;
@@ -136,7 +153,7 @@ video {
       आपका ब्राउज़र वीडियो सपोर्ट नहीं करता।
     </video>
 
-    <!-- Colorful Disclaimer -->
+    <!-- Disclaimer -->
     <div class="disclaimer-bar">
 
       <div class="label">⚠ DISCLAIMER</div>
